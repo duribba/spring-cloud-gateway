@@ -1,0 +1,15 @@
+#server:
+#  port: ${service_port:8761}
+#spring:
+#  application:
+#   name: eureka-server111
+ 
+eureka:
+  instance: 
+    #hostname: ${peer:peer1}.127.0.0.1.nip.io
+    instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+  client: 
+    register-with-eureka: false
+    fetch-registry: false
+    service-url: 
+       defaultZone: http://localhost:8761/eureka

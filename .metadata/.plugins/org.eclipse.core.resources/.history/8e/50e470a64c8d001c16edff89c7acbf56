@@ -1,0 +1,5 @@
+package com.springcloud.sampleAPI;
+
+public class SampleController {
+
+}

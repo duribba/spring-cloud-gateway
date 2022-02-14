@@ -1,0 +1,14 @@
+server:
+  port: 8000 # port random
+
+spring:
+  application:
+    name: gateway-service
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      #defaultZone: http://admin:admin@localhost:8761/eureka
+      defaultZone: http://localhost:8761/eureka

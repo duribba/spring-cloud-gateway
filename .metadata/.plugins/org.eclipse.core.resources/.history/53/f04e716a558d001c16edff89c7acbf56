@@ -1,0 +1,25 @@
+server:
+  port: 8000 # port random
+
+spring:
+  application:
+    name: gateway-service
+  cloud:
+    gateway:
+      routes:
+        - id: user-service
+          uri: lb://USER-SERVICE
+          predicates:
+            - Path=/user/** # 해당 gateway 서버의 /user/**로 들어오는 요은 user-service로 인식하겠다는 조건
+        - id: order-service
+          uri: lb://ORDER-SERVICE
+          predicates:
+            - Path=/order/** # 해당 gateway 서버의 /order/**로 들어오는 요은 order-service로 인식하겠다는 조건
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      #defaultZone: http://admin:admin@localhost:8761/eureka
+      defaultZone: http://localhost:8761/eureka
